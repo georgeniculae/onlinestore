@@ -2,7 +2,7 @@ package onlinestore.dto;
 
 import onlinestore.entity.Status;
 
-public class Product extends BaseEntityDTO {
+public class ProductDTO extends BaseEntityDTO {
 
     private String name;
     private String price;
@@ -11,7 +11,7 @@ public class Product extends BaseEntityDTO {
     private Status status;
     private ShoppingCartDTO shoppingCartDTO;
 
-    public Product(String name, String price, String quantity, String image, Status status) {
+    public ProductDTO(String name, String price, String quantity, String image, Status status) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -19,7 +19,7 @@ public class Product extends BaseEntityDTO {
         this.status = status;
     }
 
-    public Product() {
+    public ProductDTO() {
     }
 
     public String getName() {

@@ -7,7 +7,7 @@ import java.util.Map;
 @Entity
 public class ShoppingCart extends BaseEntity {
 
-    @OneToMany(mappedBy = "products")
+    @OneToMany(mappedBy = "shoppingCart")
     private Map<Integer, Product> products;
 
     public ShoppingCart(Map<Integer, Product> products) {
