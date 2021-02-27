@@ -1,6 +1,7 @@
 package onlinestore.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Product extends BaseEntity {
@@ -10,6 +11,8 @@ public class Product extends BaseEntity {
     private String quantity;
     private String image;
     private Status status;
+    @ManyToOne
+    private ShoppingCart shoppingCart;
 
     public Product(String name, String price, String quantity, String image, Status status) {
         this.name = name;
