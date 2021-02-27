@@ -13,4 +13,8 @@ public class ShoppingCartService {
     public ShoppingCartService(ShoppingCartRepository shoppingCartRepository) {
         this.shoppingCartRepository = shoppingCartRepository;
     }
+
+    public void findShoppingCart(){
+        shoppingCartRepository.findAll();
+    }
 }
