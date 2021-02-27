@@ -52,6 +52,10 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
+    public void findUserById(Long id) {
+        userRepository.findById(id);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> optionalUser = userRepository.findByUsername(username);
@@ -65,9 +69,7 @@ public class UserService implements UserDetailsService {
         }
     }
 
-//    public User editUser() {
-//        userRepository.
-//    }
-
-
+    public void userCount() {
+        userRepository.count();
+    }
 }
