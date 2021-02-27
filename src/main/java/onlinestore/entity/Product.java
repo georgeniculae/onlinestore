@@ -1,4 +1,6 @@
 package onlinestore.entity;
 
-public class Product {
+public enum Product {
+
+    NAME, PRICE, QUANTITY, 
 }
