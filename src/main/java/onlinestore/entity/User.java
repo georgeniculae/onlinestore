@@ -6,8 +6,8 @@ import java.time.LocalDate;
 @Entity
 public class User extends BaseEntity {
 
+    private String username;
     private String email;
-    private String accountName;
     private String password;
     private String city;
     private String address;
@@ -15,9 +15,9 @@ public class User extends BaseEntity {
     private String accountStatus;
     private String type;
 
-    public User(String email, String accountName, String password, String city, String address, LocalDate accountCreationDate, String accountStatus, String type) {
+    public User(String username, String email, String password, String city, String address, LocalDate accountCreationDate, String accountStatus, String type) {
+        this.username = username;
         this.email = email;
-        this.accountName = accountName;
         this.password = password;
         this.city = city;
         this.address = address;
@@ -37,12 +37,12 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
-    public String getAccountName() {
-        return accountName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
+    public void setUsername(String accountName) {
+        this.username = accountName;
     }
 
     public String getPassword() {
