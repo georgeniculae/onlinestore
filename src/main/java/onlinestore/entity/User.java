@@ -1,7 +1,9 @@
 package onlinestore.entity;
 
+import javax.persistence.Entity;
 import java.time.LocalDate;
 
+@Entity
 public class User extends BaseEntity {
 
     private String email;
