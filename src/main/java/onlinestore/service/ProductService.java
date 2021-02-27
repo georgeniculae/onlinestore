@@ -1,5 +1,6 @@
 package onlinestore.service;
 
+import onlinestore.entity.Product;
 import onlinestore.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,5 +13,9 @@ public class ProductService {
     @Autowired
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
+    }
+
+    public Product findProductBy() {
+        return null;
     }
 }
