@@ -6,9 +6,9 @@ public class Product extends BaseEntity {
     private String price;
     private String quantity;
     private String image;
-    private String status;
+    private Status status;
 
-    public Product(String name, String price, String quantity, String image, String status) {
+    public Product(String name, String price, String quantity, String image, Status status) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -51,11 +51,11 @@ public class Product extends BaseEntity {
         this.image = image;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 }
