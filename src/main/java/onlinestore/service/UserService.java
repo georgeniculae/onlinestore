@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -23,9 +25,21 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
-    public User createUsers() {
-        User user = new User();
-        return user;
+    @PostConstruct
+    public void onInit() {
+        createUsers();
+    }
+
+    public void createUsers() {
+        List<User> users = new ArrayList<>();
+        if (!userRepository.findByUsername("admin").isPresent()) {
+            users.add(new User("admin", "admin", "ROLE_ADMIN"));
+        } else if (!userRepository.findByUsername("support").isPresent()) {
+            users.add(new User("support", "support", "ROLE_SUPPORT"));
+        } else if (!userRepository.findByUsername("customer").isPresent()) {
+            users.add(new User("customer", "customer", "ROLE_CUSTOMER"));
+        }
+        userRepository.saveAll(users);
     }
 
     public List<User> findAllUsers() {

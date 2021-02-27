@@ -1,7 +1,9 @@
 package onlinestore.entity;
 
-import javax.persistence.Entity;
-import java.time.LocalDate;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class User extends BaseEntity {
@@ -11,18 +13,39 @@ public class User extends BaseEntity {
     private String password;
     private String city;
     private String address;
-    private LocalDate accountCreationDate;
     private String accountStatus;
     private String type;
 
-    public User(String username, String email, String password, String city, String address, LocalDate accountCreationDate, String accountStatus, String type) {
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date accountCreationDate;
+
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateAt;
+
+    @PrePersist
+    protected void onCreate() {
+        accountCreationDate = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updateAt = new Date();
+    }
+
+    public User(String username, String email, String password, String city, String address, String accountStatus, String type) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.city = city;
         this.address = address;
-        this.accountCreationDate = accountCreationDate;
         this.accountStatus = accountStatus;
+        this.type = type;
+    }
+
+    public User(String username, String password, String type) {
+        this.username = username;
+        this.password = password;
         this.type = type;
     }
 
@@ -69,11 +92,11 @@ public class User extends BaseEntity {
         this.address = address;
     }
 
-    public LocalDate getAccountCreationDate() {
+    public Date getAccountCreationDate() {
         return accountCreationDate;
     }
 
-    public void setAccountCreationDate(LocalDate accountCreationDate) {
+    public void setAccountCreationDate(Date accountCreationDate) {
         this.accountCreationDate = accountCreationDate;
     }
 
