@@ -72,4 +72,10 @@ public class UserService implements UserDetailsService {
     public void userCount() {
         userRepository.count();
     }
+
+    public void deleteUserById(User user, Long id) {
+        if (!user.getType().equals("ROLE_ADMIN") || !user.getType().equals("ROLE_SUPPORT")) {
+            userRepository.deleteById(id);
+        }
+    }
 }
