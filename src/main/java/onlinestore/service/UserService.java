@@ -1,5 +1,6 @@
 package onlinestore.service;
 
+import javassist.NotFoundException;
 import onlinestore.entity.User;
 import onlinestore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.MethodNotAllowedException;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -42,6 +44,11 @@ public class UserService implements UserDetailsService {
         userRepository.saveAll(users);
     }
 
+    public User saveUser(User user) {
+        userRepository.save(user);
+        return user;
+    }
+
     public List<User> findAllUsers() {
         List<User> users = userRepository.findAll();
         return users;
@@ -52,8 +59,13 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-    public void findUserById(Long id) {
-        userRepository.findById(id);
+    public User findUserById(Long id) throws NotFoundException {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isPresent()) {
+            return user.get();
+        } else {
+            throw new NotFoundException("User not found");
+        }
     }
 
     @Override
@@ -69,10 +81,8 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public void deleteUserById(User user, Long id) {
-        if (!user.getType().equals("ROLE_ADMIN") || !user.getType().equals("ROLE_SUPPORT")) {
-            userRepository.deleteById(id);
-        }
+    public void deleteUserById(Long id) {
+        userRepository.deleteById(id);
     }
 
     public void userCount() {
