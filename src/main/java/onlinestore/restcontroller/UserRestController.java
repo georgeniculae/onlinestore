@@ -35,14 +35,14 @@ public class UserRestController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<UserDTO> displayProduct(@PathVariable("id") Long id) throws NotFoundException {
+    public ResponseEntity<UserDTO> displayUser(@PathVariable("id") Long id) throws NotFoundException {
         User user = userService.findUserById(id);
         UserDTO userDTO = userTransformer.transformToDTO(user);
         return ResponseEntity.ok(userDTO);
     }
 
     @GetMapping(path = "/all")
-    public ResponseEntity<List<UserDTO>> displayProducts() {
+    public ResponseEntity<List<UserDTO>> displayUsers() {
         List<User> users = userService.findAllUsers();
         List<UserDTO> usersDTO = new ArrayList<>();
 
@@ -53,7 +53,7 @@ public class UserRestController {
     }
 
     @PutMapping
-    public ResponseEntity<UserDTO> updateProduct(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO) {
         User user = userTransformer.transformFromDTO(userDTO);
         User savedUser = userService.saveUser(user);
         UserDTO savedUserDTO = userTransformer.transformToDTO(savedUser);
@@ -61,7 +61,7 @@ public class UserRestController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<UserDTO> deleteProduct(@PathVariable("id") Long id, UserDTO userDTO) {
+    public ResponseEntity<UserDTO> deleteUser(@PathVariable("id") Long id, UserDTO userDTO) {
         if (!userDTO.getType().equals("ROLE_ADMIN") || !userDTO.getType().equals("ROLE_SUPPORT")) {
             userService.deleteUserById(id);
         }

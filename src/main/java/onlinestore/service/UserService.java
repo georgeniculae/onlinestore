@@ -4,10 +4,10 @@ import javassist.NotFoundException;
 import onlinestore.entity.User;
 import onlinestore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.MethodNotAllowedException;
 
@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService implements UserDetailsService {
-
+public class UserService {
+// implements UserDetailsService
     private final UserRepository userRepository;
 
     @Autowired
@@ -68,18 +68,18 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> optionalUser = userRepository.findByUsername(username);
-        if (optionalUser.isPresent()) {
-            return new org.springframework.security.core.userdetails.User(
-                    optionalUser.get().getUsername(),
-                    optionalUser.get().getPassword(),
-                    Arrays.asList(new SimpleGrantedAuthority(optionalUser.get().getType())));
-        } else {
-            throw new UsernameNotFoundException("Invalid username or password");
-        }
-    }
+//    @Override
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//        Optional<User> optionalUser = userRepository.findByUsername(username);
+//        if (optionalUser.isPresent()) {
+//            return new org.springframework.security.core.userdetails.User(
+//                    optionalUser.get().getUsername(),
+//                    optionalUser.get().getPassword(),
+//                    Arrays.asList(new SimpleGrantedAuthority(optionalUser.get().getType())));
+//        } else {
+//            throw new UsernameNotFoundException("Invalid username or password");
+//        }
+//    }
 
     public void deleteUserById(Long id) {
         userRepository.deleteById(id);
