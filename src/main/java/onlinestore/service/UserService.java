@@ -4,12 +4,13 @@ import javassist.NotFoundException;
 import onlinestore.entity.User;
 import onlinestore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.core.authority.SimpleGrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.core.userdetails.UserDetailsService;
-//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.MethodNotAllowedException;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -18,8 +19,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
-// implements UserDetailsService
+public class UserService implements UserDetailsService {
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     private final UserRepository userRepository;
 
     @Autowired
@@ -35,11 +39,11 @@ public class UserService {
     public void createUsers() {
         List<User> users = new ArrayList<>();
         if (!userRepository.findByUsername("admin").isPresent()) {
-            users.add(new User("admin", "admin", "ROLE_ADMIN"));
+            users.add(new User("admin", passwordEncoder.encode("admin"), "ROLE_ADMIN"));
         } else if (!userRepository.findByUsername("support").isPresent()) {
-            users.add(new User("support", "support", "ROLE_SUPPORT"));
+            users.add(new User("support", passwordEncoder.encode("support"), "ROLE_SUPPORT"));
         } else if (!userRepository.findByUsername("customer").isPresent()) {
-            users.add(new User("customer", "customer", "ROLE_CUSTOMER"));
+            users.add(new User("customer", passwordEncoder.encode("customer"), "ROLE_CUSTOMER"));
         }
         userRepository.saveAll(users);
     }
@@ -68,18 +72,18 @@ public class UserService {
         }
     }
 
-//    @Override
-//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        Optional<User> optionalUser = userRepository.findByUsername(username);
-//        if (optionalUser.isPresent()) {
-//            return new org.springframework.security.core.userdetails.User(
-//                    optionalUser.get().getUsername(),
-//                    optionalUser.get().getPassword(),
-//                    Arrays.asList(new SimpleGrantedAuthority(optionalUser.get().getType())));
-//        } else {
-//            throw new UsernameNotFoundException("Invalid username or password");
-//        }
-//    }
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+        if (optionalUser.isPresent()) {
+            return new org.springframework.security.core.userdetails.User(
+                    optionalUser.get().getUsername(),
+                    optionalUser.get().getPassword(),
+                    Arrays.asList(new SimpleGrantedAuthority(optionalUser.get().getType())));
+        } else {
+            throw new UsernameNotFoundException("Invalid username or password");
+        }
+    }
 
     public void deleteUserById(Long id) {
         userRepository.deleteById(id);

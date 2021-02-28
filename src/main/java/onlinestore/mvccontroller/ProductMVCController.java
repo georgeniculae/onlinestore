@@ -19,6 +19,8 @@ public class ProductMVCController {
     @GetMapping(path = "/products")
     public String showProducts(Model model) {
         model.addAttribute("products", this.productService.findAllProducts());
-        return "index";
+        return "products";
     }
+
+
 }
