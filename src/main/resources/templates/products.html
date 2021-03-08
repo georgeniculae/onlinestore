@@ -10,14 +10,20 @@
 <table>
     <thead>
     <tr>
+        <th>No</th>
         <th>Name</th>
         <th>Price</th>
+        <th>Status</th>
         <th>Quantity</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td></td>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.status}"></td>
+        <th th:text="${product.quantity}"></th>
     </tr>
     </tbody>
 </table>
