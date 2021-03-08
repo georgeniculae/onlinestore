@@ -17,8 +17,7 @@ public class Product extends BaseEntity {
     @ManyToOne
     private ShoppingCart shoppingCart;
 
-    public Product(Long id, String name, String category, String manufacturer, String model, String price, String quantity, String image, Status status) {
-        super(id);
+    public Product(String name, String category, String manufacturer, String model, String price, String quantity, String image, Status status) {
         this.name = name;
         this.category = category;
         this.manufacturer = manufacturer;
