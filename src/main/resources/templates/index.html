@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
 </head>
 <body>
+<div>
+    <a th:href="@{/users}">
+        <button type="button">Users</button>
+    </a>
+    
+    <a th:href="@{/products}">
+        <button type="button">Products</button>
+    </a>
+</div>
+
 <h1>Online Store</h1>
 </body>
 </html>

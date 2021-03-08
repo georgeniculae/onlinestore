@@ -7,12 +7,18 @@
     <title>Products</title>
 </head>
 <body>
+<a href="/">
+    <button type="button">Home</button>
+</a>
 <table>
     <thead>
     <tr>
         <th>No</th>
         <th>Name</th>
         <th>Price</th>
+        <th>Category</th>
+        <th>Manufacturer</th>
+        <th>Model</th>
         <th>Status</th>
         <th>Quantity</th>
     </tr>
@@ -22,6 +28,9 @@
         <td th:text="${product.id}"></td>
         <td th:text="${product.name}"></td>
         <td th:text="${product.price}"></td>
+        <td th:text="${product.category}"></td>
+        <td th:text="${product.manufacturer}"></td>
+        <td th:text="${product.model}"></td>
         <td th:text="${product.status}"></td>
         <th th:text="${product.quantity}"></th>
     </tr>
