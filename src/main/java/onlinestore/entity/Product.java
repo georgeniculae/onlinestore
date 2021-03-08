@@ -7,6 +7,9 @@ import javax.persistence.ManyToOne;
 public class Product extends BaseEntity {
 
     private String name;
+    private String category;
+    private String manufacturer;
+    private String model;
     private String price;
     private String quantity;
     private String image;
@@ -14,8 +17,12 @@ public class Product extends BaseEntity {
     @ManyToOne
     private ShoppingCart shoppingCart;
 
-    public Product(String name, String price, String quantity, String image, Status status) {
+    public Product(Long id, String name, String category, String manufacturer, String model, String price, String quantity, String image, Status status) {
+        super(id);
         this.name = name;
+        this.category = category;
+        this.manufacturer = manufacturer;
+        this.model = model;
         this.price = price;
         this.quantity = quantity;
         this.image = image;
@@ -31,6 +38,30 @@ public class Product extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public String getPrice() {
