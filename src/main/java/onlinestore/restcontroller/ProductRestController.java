@@ -29,7 +29,7 @@ public class ProductRestController {
     @PostMapping
     public ResponseEntity<ProductDTO> createProduct(@RequestAttribute ProductDTO productDTO) {
         Product product = productTransformer.transformFromDTO(productDTO);
-        Product savedProduct = productService.createProduct(product);
+        Product savedProduct = productService.saveProduct(product);
         ProductDTO savedProductDTO = productTransformer.transformToDTO(savedProduct);
         return ResponseEntity.ok(savedProductDTO);
     }
@@ -55,7 +55,7 @@ public class ProductRestController {
     @PutMapping
     public ResponseEntity<ProductDTO> updateProduct(@RequestBody ProductDTO productDTO) {
         Product product = productTransformer.transformFromDTO(productDTO);
-        Product savedProduct = productService.createProduct(product);
+        Product savedProduct = productService.saveProduct(product);
         ProductDTO savedProductDTO = productTransformer.transformToDTO(savedProduct);
         return ResponseEntity.ok(savedProductDTO);
     }

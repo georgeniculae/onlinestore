@@ -35,7 +35,7 @@ public class ProductService {
         }
     }
 
-    public Product createProduct(Product product) {
+    public Product saveProduct(Product product) {
         Product savedProduct = productRepository.save(product);
         return savedProduct;
     }
