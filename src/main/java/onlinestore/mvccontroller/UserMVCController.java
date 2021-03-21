@@ -1,6 +1,5 @@
 package onlinestore.mvccontroller;
 
-import onlinestore.entity.Product;
 import onlinestore.entity.User;
 import onlinestore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
