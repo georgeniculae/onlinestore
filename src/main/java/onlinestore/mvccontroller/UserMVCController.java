@@ -1,5 +1,6 @@
 package onlinestore.mvccontroller;
 
+import javassist.NotFoundException;
 import onlinestore.entity.User;
 import onlinestore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -36,5 +38,27 @@ public class UserMVCController {
             userService.saveUser(user);
             return "redirect:/users";
         }
+    }
+
+    @PostMapping(path = "/user/update")
+    public String editUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "edit-user";
+        } else {
+            this.userService.saveUser(user);
+            return "redirect:/users";
+        }
+    }
+
+    @GetMapping(path = "/user/edit/{id}")
+    public String showUpdateUserPage(@PathVariable("id") Long id, Model model) throws NotFoundException {
+        model.addAttribute("user", this.userService.findUserById(id));
+        return "edit-user";
+    }
+
+    @GetMapping(path = "/user/delete/{id}")
+    public String deleteEmployeeById(@PathVariable("id") Long id) {
+        userService.deleteUserById(id);
+        return "redirect:/users";
     }
 }

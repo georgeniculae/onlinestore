@@ -51,7 +51,7 @@ public class ProductMVCController {
     }
 
     @GetMapping(path = "/product/edit/{id}")
-    public String showUpdatePage(@PathVariable("id") Long id, Model model) throws NotFoundException {
+    public String showUpdateProductPage(@PathVariable("id") Long id, Model model) throws NotFoundException {
         model.addAttribute("product", this.productService.findProductById(id));
         return "edit-product";
     }

@@ -13,6 +13,4 @@ public class ShoppingCartMVCController {
     public ShoppingCartMVCController(ShoppingCartService shoppingCartService) {
         this.shoppingCartService = shoppingCartService;
     }
-
-
 }
