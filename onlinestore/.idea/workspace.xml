@@ -5,59 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="691f9f1b-584d-4909-8dda-36a07bc568ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/onlinestore/entity/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/spring-1.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/OnlineStoreApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/dto/BaseEntityDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/dto/ProductDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/dto/ShoppingCartDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/dto/UserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/entity/BaseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/entity/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/entity/ShoppingCart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/entity/Status.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/mvccontroller/ProductMVCController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/mvccontroller/ShoppingCartMVCController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/mvccontroller/UserMVCController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/repository/ProductRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/repository/ShoppingCartRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/restcontroller/ProductRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/restcontroller/ShoppingCartRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/restcontroller/UserRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/service/ProductService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/service/ShoppingCartService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/transformer/ProductTransformer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/transformer/ShoppingCartTransformer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/onlinestore/transformer/UserTransformer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/templates/edit-product.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/templates/edit-user.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/templates/new-product.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/templates/new-user.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/templates/products.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/templates/users.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/java/onlinestore/OnlinestoreApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/onlinestore/entity/Test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
