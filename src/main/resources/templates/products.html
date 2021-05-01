@@ -37,6 +37,8 @@
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
+                <a role="button" class="btn btn-info" style="margin: 8px" sec:authorize="isFullyAuthenticated()"
+                   th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i> Log Out</a>
             </form>
         </div>
     </div>

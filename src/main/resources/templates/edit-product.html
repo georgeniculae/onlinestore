@@ -34,9 +34,17 @@
                     <a class="nav-link" th:href="@{/users}">Users</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="form-inline my-2 my-lg-0" method="post">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                       aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <a role="button" class="btn btn-info" style="margin: 8px" sec:authorize="isFullyAuthenticated()"
+                   th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                <a role="button" class="btn btn-info" data-toggle="modal" style="margin: 8px"
+                   sec:authorize="!isFullyAuthenticated()"
+                   href="#myModal"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                <a role="button" class="btn btn-info" style="margin: 8px" sec:authorize="!isFullyAuthenticated()"
+                   th:href="@{/register}"><i class="fas fa-user-plus"></i> Register</a>
             </form>
         </div>
     </div>
