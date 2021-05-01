@@ -30,6 +30,13 @@ public class ProductMVCController {
         return "products";
     }
 
+    @GetMapping(path = "/product/registration")
+    public String showRegistration(Model model) {
+        model.addAttribute("product", new Product());
+        model.addAttribute("allProducts", this.productService.findAllProducts());
+        return "new-product";
+    }
+
     @PostMapping(path = "/product/add")
     public String addProduct(@PathVariable("product") @Valid Product product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
