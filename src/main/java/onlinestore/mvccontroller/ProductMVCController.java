@@ -30,8 +30,8 @@ public class ProductMVCController {
         return "products";
     }
 
-    @PostMapping(path = "/product/{id}")
-    public String createProduct(@PathVariable("id") @Valid Product product, BindingResult bindingResult) {
+    @PostMapping(path = "/product/add")
+    public String addProduct(@PathVariable("product") @Valid Product product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "new-product";
         } else {

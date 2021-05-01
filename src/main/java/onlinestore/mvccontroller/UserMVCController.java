@@ -30,8 +30,8 @@ public class UserMVCController {
         return "users";
     }
 
-    @PostMapping(path = "/user/{id}")
-    public String createProduct(@PathVariable("id") @Valid User user, BindingResult bindingResult) {
+    @PostMapping(path = "/user/add")
+    public String addUser(@PathVariable("user") @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "new-user";
         } else {
