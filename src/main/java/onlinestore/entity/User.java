@@ -11,7 +11,6 @@ public class User extends BaseEntity {
     private String username;
     private String email;
     private String password;
-    private String city;
     private String address;
     private String accountStatus;
     private String type;
@@ -33,11 +32,10 @@ public class User extends BaseEntity {
         updateAt = new Date();
     }
 
-    public User(String username, String email, String password, String city, String address, String accountStatus, String type) {
+    public User(String username, String email, String password, String address, String accountStatus, String type) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.city = city;
         this.address = address;
         this.accountStatus = accountStatus;
         this.type = type;
@@ -74,14 +72,6 @@ public class User extends BaseEntity {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getAddress() {

@@ -1,6 +1,7 @@
 package onlinestore.mvccontroller;
 
 import javassist.NotFoundException;
+import onlinestore.entity.Product;
 import onlinestore.entity.User;
 import onlinestore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,13 @@ public class UserMVCController {
     public String users(Model model) {
         model.addAttribute("users", this.userService.findAllUsers());
         return "users";
+    }
+
+    @GetMapping(path = "/user/registration")
+    public String showRegistration(Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("allUsers", this.userService.findAllUsers());
+        return "new-user";
     }
 
     @PostMapping(path = "/user/add")

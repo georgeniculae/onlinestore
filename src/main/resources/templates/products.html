@@ -17,37 +17,92 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/MyStyles.css/}"/>
 </head>
 <body>
-<a href="/">
-    <button type="button">Home</button>
-</a>
-<table>
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Manufacturer</th>
-        <th>Model</th>
-        <th>Status</th>
-        <th>Quantity</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="product : ${products}">
-        <td th:text="${product.id}"></td>
-        <td th:text="${product.description}"></td>
-        <td th:text="${product.price}"></td>
-        <td th:text="${product.category}"></td>
-        <td th:text="${product.manufacturer}"></td>
-        <td th:text="${product.model}"></td>
-        <td th:text="${product.status}"></td>
-        <th th:text="${product.quantity}"></th>
-    </tr>
-    </tbody>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">Online Store</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/products}">Products</a>
+                </li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+                    <a class="nav-link" th:href="@{/users}">Users</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<table class="table table-sm table-dark">
+    <div class="table-responsive">
+        <table class="table align-middle">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Status</th>
+                <th>Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="align-bottom" th:each="product : ${products}">
+                <td class="align-top" th:text="${product.id}"></td>
+                <td class="align-top" th:text="${product.description}"></td>
+                <td class="align-top" th:text="${product.price}"></td>
+                <td class="align-top" th:text="${product.category}"></td>
+                <td class="align-top" th:text="${product.manufacturer}"></td>
+                <td class="align-top" th:text="${product.model}"></td>
+                <td class="align-top" th:text="${product.status}"></td>
+                <td class="align-top" th:text="${product.quantity}"></td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a th:href="@{/product/edit/{id}(id = ${product.id})}">
+                        <i>
+                            <button type="button" class="btn btn-primary">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square"
+                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+                                    <path fill-rule="evenodd"
+                                          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path>
+                                </svg>
+                            </button>
+                        </i>
+                    </a>
+                </td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a th:href="@{/product/delete/{id}(id = ${product.id})}">
+                        <i>
+                            <button type="button" class="btn btn-primary">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash"
+                                     fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+                                    <path fill-rule="evenodd"
+                                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+                                </svg>
+                            </button>
+                        </i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </table>
 
-<div>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
     <a th:href="@{/product/registration}">
         <button type="button" class="btn btn-outline-primary">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-square"
