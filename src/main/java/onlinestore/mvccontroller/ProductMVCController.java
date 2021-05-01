@@ -35,7 +35,7 @@ public class ProductMVCController {
         if (bindingResult.hasErrors()) {
             return "new-product";
         } else {
-            productService.saveProduct(product);
+            this.productService.saveProduct(product);
             return "redirect:/products";
         }
     }
