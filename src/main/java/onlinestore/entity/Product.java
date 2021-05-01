@@ -6,19 +6,19 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Product extends BaseEntity {
 
-    private String name;
+    private String description;
     private String category;
     private String manufacturer;
     private String model;
     private String price;
-    private String quantity;
+    private int quantity;
     private String image;
     private Status status;
     @ManyToOne
     private ShoppingCart shoppingCart;
 
-    public Product(String name, String category, String manufacturer, String model, String price, String quantity, String image, Status status) {
-        this.name = name;
+    public Product(String description, String category, String manufacturer, String model, String price, int quantity, String image, Status status) {
+        this.description = description;
         this.category = category;
         this.manufacturer = manufacturer;
         this.model = model;
@@ -31,12 +31,12 @@ public class Product extends BaseEntity {
     public Product() {
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getCategory() {
@@ -71,11 +71,11 @@ public class Product extends BaseEntity {
         this.price = price;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
