@@ -16,7 +16,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/MyStyles.css/}"/>
 </head>
 <body>
-
+<a href="/">
+    <button type="button">Home</button>
+</a>
 <div>
     <form th:action="@{/product/add}" th:object="${product}" method="post">
 
@@ -45,6 +47,51 @@
             <input type="text" id="manufacturer" th:field="${product.manufacturer}" class="form-control"
                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             <span th:if="${#fields.hasErrors('manufacturer')}" th:errors="${product.manufacturer}"></span>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="model-span">Model</span>
+            </div>
+            <input type="text" id="model" th:field="${product.model}" class="form-control"
+                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <span th:if="${#fields.hasErrors('model')}" th:errors="${product.model}"></span>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="price-span">Price</span>
+            </div>
+            <input type="text" id="price" th:field="${product.price}" class="form-control"
+                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <span th:if="${#fields.hasErrors('price')}" th:errors="${product.price}"></span>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="quantity-span">Quantity</span>
+            </div>
+            <input type="text" id="quantity" th:field="${product.quantity}" class="form-control"
+                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <span th:if="${#fields.hasErrors('quantity')}" th:errors="${product.quantity}"></span>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="image-span">Image</span>
+            </div>
+            <input type="text" id="image" th:field="${product.image}" class="form-control"
+                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <span th:if="${#fields.hasErrors('image')}" th:errors="${product.image}"></span>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="status-span">Status</span>
+            </div>
+            <input type="text" id="status" th:field="${product.status}" class="form-control"
+                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <span th:if="${#fields.hasErrors('status')}" th:errors="${product.status}"></span>
         </div>
 
         <button type="submit" class="btn btn-primary">
