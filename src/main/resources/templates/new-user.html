@@ -32,9 +32,6 @@
                 <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
                     <a class="nav-link" th:href="@{/users}">Users</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" method="post">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search"
@@ -51,6 +48,77 @@
         </div>
     </div>
 </nav>
+
+<div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Create Account</h4>
+        <p class="text-center">Get started with your free account</p>
+<!--        <p>-->
+<!--            <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>-->
+<!--            <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>-->
+<!--        </p>-->
+        <p class="divider-text">
+            <span class="bg-light">OR</span>
+        </p>
+        <form th:action="@{/user/registration}" th:object="${user}" method="post">
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+                <input name="" th:field="${customer.firstName}" class="form-control" placeholder="First name"
+                       type="text">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+                <input name="" th:field="${customer.lastName}" class="form-control" placeholder="Last name" type="text">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                </div>
+                <input type="email" th:field="${customer.email}" id="email" class="form-control"
+                       placeholder="Email address">
+                <!--                <span th:if="${#fields.hasErrors('email')}" th:errors="${customer.email}"></span>-->
+            </div> <!-- form-group// -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="text" th:field="${customer.username}" class="form-control" placeholder="Username"
+                       aria-label="Username"
+                       aria-describedby="basic-addon1">
+            </div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-home"></i> </span>
+                </div>
+                <input type="text" th:field="${customer.address}" id="address" class="form-control"
+                       placeholder="Address">
+                <!--                <span th:if="${#fields.hasErrors('address')}" th:errors="${customer.address}"></span>-->
+            </div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input th:field="${customer.password}" class="form-control" placeholder="Create password"
+                       type="password">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input th:field="${customer.confirmPassword}" class="form-control" placeholder="Repeat password"
+                       type="password">
+            </div> <!-- form-group// -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"> Create Account</button>
+            </div> <!-- form-group// -->
+            <p class="text-center">Have an account? <a th:href="@{/login}">Log In</a></p>
+        </form>
+    </article>
+</div> <!-- card.// -->
 
 </body>
 </html>

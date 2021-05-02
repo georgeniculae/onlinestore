@@ -1,6 +1,8 @@
 package onlinestore.service;
 
 import javassist.NotFoundException;
+import onlinestore.dto.CustomerDTO;
+import onlinestore.entity.Customer;
 import onlinestore.entity.User;
 import onlinestore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,11 +86,27 @@ public class UserService implements UserDetailsService {
         }
     }
 
+    public Optional<User> findUserByUsername(String username) {
+        return this.userRepository.findByUsername(username);
+    }
+
     public void deleteUserById(Long id) {
         userRepository.deleteById(id);
     }
 
-    public void userCount() {
-        userRepository.count();
+    public Long userCount() {
+        return userRepository.count();
+    }
+
+    public Customer registerCustomer(CustomerDTO customerDTO) {
+        Customer user = new Customer();
+        user.setUsername(customerDTO.getUsername());
+        user.setPassword(passwordEncoder.encode(customerDTO.getPassword()));
+        user.setFirstName(customerDTO.getFirstName());
+        user.setLastName(customerDTO.getLastName());
+        user.setEmail(customerDTO.getEmail());
+        user.setAddress(customerDTO.getAddress());
+        user.setType("ROLE_CUSTOMER");
+        return userRepository.save(user);
     }
 }
